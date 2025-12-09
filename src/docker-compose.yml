@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  frontend:
+    image: node:18
+    container_name: chatbox-frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    command: ["npm", "start"]
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  backend:
+    image: node:18
+    container_name: chatbox-backend
+    working_dir: /app
+    environment:
+      - DATABASE_URL=postgres://postgres:password@db:5432/chatbox
+    volumes:
+      - ./backend:/app
+    command: ["npm", "run", "dev"]
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    container_name: chatbox-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: chatbox
+    volumes:
+      - chatbox_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  chatbox_data:
