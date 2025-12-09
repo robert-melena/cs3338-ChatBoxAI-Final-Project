@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\title{ChatBox AI \\ \Large User Manual and README}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Project Overview}
+ChatBox AI is a web-based AI chat assistant designed to help students ask questions about coursework, planning, and general topics in a conversational format. This manual describes how the hypothetical system is intended to be used and how it would be installed and run in a real deployment.
+
+\section{Jira Link}
+All project tasks, epics, and sprint planning for the course are tracked in Jira.
+
+\noindent\textbf{Jira Board:} \url{https://your-jira-link-here.com} % <-- replace with real link
+
+\section{Objectives and Goals}
+\begin{itemize}
+  \item Provide a simple and intuitive chat interface for students.
+  \item Demonstrate how an AI-backed web application can be structured using modern tools.
+  \item Document the full software lifecycle using SDD, SRS, design spec, and testing reports.
+\end{itemize}
+
+\section{Why This Software Matters}
+AI chat systems are becoming standard tools for learning and productivity. This project simulates how a university-focused AI assistant could help students:
+\begin{itemize}
+  \item Ask quick conceptual questions.
+  \item Plan study schedules.
+  \item Get reminders about deadlines (in future extensions).
+\end{itemize}
+
+\section{How to Download or Access}
+In this course project, the focus is on documentation rather than a fully running system. In a real deployment, the following steps would be used:
+
+\subsection*{Clone the Repository}
+\begin{verbatim}
+git clone https://github.com/your-username/chatbox-ai-docs.git
+cd chatbox-ai-docs
+\end{verbatim}
+
+\subsection*{Docker-Based Deployment (Conceptual)}
+\begin{enumerate}[label=\arabic*.]
+  \item Install Docker and docker-compose.
+  \item Set up environment variables (e.g., database credentials, AI API key).
+  \item Run: \texttt{docker-compose up --build}
+  \item Open a web browser and navigate to: \texttt{http://localhost:8080}
+\end{enumerate}
+
+\section{User Guide}
+
+\subsection{Student User Flow}
+\begin{enumerate}[label=\arabic*.]
+  \item Open the ChatBox AI website.
+  \item Create an account or log in.
+  \item Start a new chat session.
+  \item Type a question into the chat box and press \emph{Send}.
+  \item Read the AI response and continue the conversation.
+  \item Optionally, revisit past sessions or export the conversation (Snapshot 2 feature).
+\end{enumerate}
+
+\subsection{Admin User Flow}
+\begin{enumerate}[label=\arabic*.]
+  \item Log in as an admin user.
+  \item Open the \emph{Admin Dashboard}.
+  \item Review usage statistics and system health indicators.
+\end{enumerate}
+
+\section{Limitations and Future Work}
+\begin{itemize}
+  \item Real AI integration would require secure handling of API keys.
+  \item Future work includes better personalization, reminders, and integration with learning management systems.
+\end{itemize}
+
+\end{document}
