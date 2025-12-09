@@ -1,0 +1,14 @@
+{
+  "name": "chatbox-backend",
+  "version": "1.0.0",
+  "description": "Placeholder backend for ChatBox AI final project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "echo \"Starting backend (placeholder)...\""
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0"
+  }
+}
