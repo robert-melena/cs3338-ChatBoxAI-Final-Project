@@ -1,0 +1,175 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{longtable}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{ChatBox AI – SRS}
+\lhead{Software Requirements Specification}
+\cfoot{\thepage}
+
+\title{ChatBox AI \\ \Large Software Requirements Specification (SRS)}
+\author{Your Name \\ California State University, Los Angeles}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\newpage
+
+\tableofcontents
+\newpage
+
+%--------------------------------------------------
+\section*{Version History}
+\addcontentsline{toc}{section}{Version History}
+
+\begin{longtable}{|p{2.5cm}|p{3cm}|p{6cm}|p{3cm}|}
+\hline
+\textbf{Version} & \textbf{Date} & \textbf{Description} & \textbf{Author} \\ \hline
+1.0 & Snapshot 1 & Initial SRS: core functional and non-functional requirements & Your Name \\ \hline
+1.1 & Snapshot 2 & Requirements for history export and improved onboarding & Your Name \\ \hline
+1.2 & Snapshot 3 & Requirements for multi-channel support and admin metrics & Your Name \\ \hline
+1.3 & Snapshot 4 & Final adjustments and future work & Your Name \\ \hline
+\end{longtable}
+
+\newpage
+
+%==================================================
+\section{Introduction}
+
+\subsection{Purpose}
+The purpose of this SRS is to define all functional and non-functional requirements for the ChatBox AI system, a web-based AI chat assistant targeted at students seeking help with coursework, planning, and general questions.
+
+\subsection{Intended Audience}
+This document is intended for:
+\begin{itemize}
+  \item The course instructor grading the project.
+  \item Team members responsible for design, testing, and documentation.
+\end{itemize}
+
+\subsection{Product Scope}
+ChatBox AI will:
+\begin{itemize}
+  \item Provide conversational support to students via a web interface.
+  \item Store a history of chat sessions for each user.
+  \item Offer basic admin tools for monitoring usage.
+  \item Integrate with external AI services.
+\end{itemize}
+
+%==================================================
+\section{Overall Description}
+
+\subsection{User Classes and Characteristics}
+\begin{itemize}
+  \item \textbf{Student User:} Primary user who chats with the AI. Minimal technical expertise required.
+  \item \textbf{Admin User:} Instructor or system administrator who monitors usage statistics and manages configurations.
+\end{itemize}
+
+\subsection{Operating Environment}
+\begin{itemize}
+  \item Web browser (Chrome, Firefox, Edge, etc.).
+  \item Backend and database running in Docker containers (Linux-based).
+\end{itemize}
+
+\subsection{Design and Implementation Constraints}
+\begin{itemize}
+  \item For this course, the system is documented but not fully implemented.
+  \item Requirements assume use of standard web technologies and a relational database.
+\end{itemize}
+
+%==================================================
+\section{External Interface Requirements}
+
+\subsection{User Interface}
+\begin{itemize}
+  \item Responsive chat interface with clear message alignment for user vs.\ AI.
+  \item Navigation menu for switching between chat sessions, settings, and admin dashboard.
+\end{itemize}
+
+\subsection{Software Interfaces}
+\begin{itemize}
+  \item RESTful API endpoints for chat messages, user management, and admin analytics.
+  \item External AI provider API (abstracted by the AI Adapter).
+  \item Database interface (e.g., PostgreSQL driver).
+\end{itemize}
+
+%==================================================
+\section{Functional Requirements}
+
+\subsection{User Registration and Login}
+\begin{itemize}
+  \item \textbf{FR1:} The system shall allow users to create an account using email and password.
+  \item \textbf{FR2:} The system shall authenticate users using their credentials.
+\end{itemize}
+
+\subsection{Chat Sessions}
+\begin{itemize}
+  \item \textbf{FR3:} The system shall allow users to start a new chat session.
+  \item \textbf{FR4:} The system shall store each message in a chat session.
+  \item \textbf{FR5:} The system shall allow users to revisit previous chat sessions.
+  \item \textbf{FR6 (Snapshot 2):} The system shall allow users to export a chat session as a text or PDF file.
+\end{itemize}
+
+\subsection{AI Responses}
+\begin{itemize}
+  \item \textbf{FR7:} The system shall send user messages to an AI provider and display the AI response.
+  \item \textbf{FR8:} The system shall handle AI timeouts and display appropriate error messages.
+\end{itemize}
+
+\subsection{Admin Features}
+\begin{itemize}
+  \item \textbf{FR9 (Snapshot 3):} The system shall provide an admin dashboard with basic usage statistics (number of users, number of sessions, total messages).
+  \item \textbf{FR10 (Snapshot 3):} The system shall allow admin users to view aggregated metrics by date range.
+\end{itemize}
+
+%==================================================
+\section{Non-Functional Requirements}
+
+\subsection{Performance Requirements}
+\begin{itemize}
+  \item \textbf{NFR1:} The system should respond to user requests within a few seconds, excluding AI provider delays.
+  \item \textbf{NFR2:} The system should support multiple concurrent users in a typical university-scale setting.
+\end{itemize}
+
+\subsection{Security Requirements}
+\begin{itemize}
+  \item \textbf{NFR3:} Passwords must never be stored in plain text.
+  \item \textbf{NFR4:} Only authenticated users can access their own chat history.
+  \item \textbf{NFR5:} Admin-only features must be protected by role-based access control.
+\end{itemize}
+
+\subsection{Reliability, Availability, and Maintainability}
+\begin{itemize}
+  \item \textbf{NFR6:} The system should be designed so that services can be restarted independently using Docker.
+  \item \textbf{NFR7:} Logs should be kept for diagnostic purposes.
+\end{itemize}
+
+%==================================================
+\section{Legal and Ethical Considerations}
+
+\subsection{User Data and Privacy}
+\begin{itemize}
+  \item The system should minimize the collection of personally identifiable information.
+  \item Users should be informed that their conversation data may be stored and used to improve the system.
+\end{itemize}
+
+\subsection{Academic Integrity}
+\begin{itemize}
+  \item ChatBox AI could be misused to generate answers for assignments or exams.
+  \item The user interface should include a disclaimer reminding students to use AI assistance responsibly and align with university academic integrity policies.
+\end{itemize}
+
+%==================================================
+\section{Glossary}
+
+\begin{description}
+  \item[Student User] A typical student using the chat interface.
+  \item[Admin User] Instructor or system administrator.
+  \item[Chat Session] A collection of messages between a user and the AI.
+\end{description}
+
+\end{document}
