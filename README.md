@@ -100,5 +100,3 @@ This project is **design-only**, but assumes the following stack in a real imple
 1. Navigate to the `docs/` folder.  
 2. Open a `.tex` file in a LaTeX editor (Overleaf, TeXShop, etc.).  
 3. Compile to PDF to view the formatted document.
-
-No actual code is required to run for this course project; the focus is on the design and documentation artifacts.
