@@ -63,9 +63,9 @@ The idea behind ChatBox AI is a simple AI chat assistant for students. This proj
 
 ---
 
-## Technologies (Assumed)
+## Technologies
 
-- Frontend: React or Vue  
+- Frontend: Javascript + CSS  
 - Backend: Node.js + Express  
 - Database: PostgreSQL  
 - Containers: Docker + docker-compose  
